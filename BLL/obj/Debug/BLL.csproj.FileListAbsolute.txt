@@ -1,0 +1,6 @@
+C:\Users\Administrator\Documents\Assignment_2\BLL\bin\Debug\BLL.dll
+C:\Users\Administrator\Documents\Assignment_2\BLL\bin\Debug\BLL.pdb
+C:\Users\Administrator\Documents\Assignment_2\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\Assignment_2\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\Assignment_2\BLL\obj\Debug\BLL.dll
+C:\Users\Administrator\Documents\Assignment_2\BLL\obj\Debug\BLL.pdb
