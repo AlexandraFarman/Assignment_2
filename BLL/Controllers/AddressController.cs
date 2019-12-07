@@ -27,5 +27,13 @@ namespace BLL.Controllers
         {
             return true;
         }
+
+        public List<Address> GetAllAddresses()
+        {
+            List<Address> addresses = new List<Address>();
+            addresses.Add(new Address(1, "Exempelgata 1", "12345", "Malmö", Countries.Angola));
+            addresses.Add(new Address(2, "Exempelgata 2", "444444", "Malmö", Countries.Armenia));
+            return addresses;
+        }
     }
 }

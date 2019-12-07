@@ -1,4 +1,5 @@
-﻿using HomesForSales.Models;
+﻿using BLL.Models;
+using HomesForSales.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace BLL.Controllers
     {
         public List<Estate> GetEstateTypes()
         {
+            // Examples. Should be fetched from database.
             var estateTypes = new List<Estate>();
             estateTypes.Add(new Apartment());
             estateTypes.Add(new House());
@@ -22,6 +24,32 @@ namespace BLL.Controllers
             return estateTypes;
         }
 
+        public List<Estate> GetEstateCategories()
+        {
+            // Examples. Should be fetched from database.
+            var estateCategories = new List<Estate>();
+            estateCategories.Add(new Commercial());
+            estateCategories.Add(new Residential());
+
+            return estateCategories;
+        }
+
+        public List<Estate> GetAllEstates()
+        {
+            // Examples. Should be fetched from database.
+            var estates = new List<Estate>();
+            estates.Add(new Apartment(
+                LegalForm.Ownership,
+                new Address(1, "Exempelgata 1", "12345", "Malmö", Countries.Saint_Lucia),
+                "1"));
+            estates.Add(new House(
+                LegalForm.Ownership,
+                new Address(2, "Exempelgata 2", "54321", "Malmå", Countries.San_Marino),
+                "2"));
+
+            return estates;
+        }
+
         public bool AddEstate(Estate estate)
         {
             return true;
@@ -29,6 +57,7 @@ namespace BLL.Controllers
 
         public bool UpdateEstate(Estate estate)
         {
+            var estateType = estate.GetType();
             return true;
         }
 
@@ -37,9 +66,20 @@ namespace BLL.Controllers
             return true;
         }
 
-        public bool SearchEstate(Estate estate)
+        public List<Estate> SearchEstate(FindEstateDto estate)
         {
-            return true;
+            // Examples. Should be fetched from database.
+            var estates = new List<Estate>();
+            estates.Add(new Apartment(
+                LegalForm.Ownership,
+                new Address(1, "Exempelgata 1", "12345", "Malmö", Countries.Saint_Lucia),
+                "1"));
+            estates.Add(new House(
+                LegalForm.Ownership,
+                new Address(2, "Exempelgata 2", "54321", "Malmå", Countries.San_Marino),
+                "2"));
+
+            return estates;
         }
     }
 }

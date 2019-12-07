@@ -9,6 +9,7 @@ namespace BLL.Controllers
 {
     public interface IAddressController
     {
+        List<Address> GetAllAddresses();
         bool AddAddress(Address address);
         bool UpdateAddress(Address address);
         bool DeleteAddress(Address address);

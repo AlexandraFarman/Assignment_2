@@ -1,4 +1,5 @@
 ﻿using BLL.Controllers;
+using BLL.Models;
 using HomesForSales.Models;
 using System;
 using System.Collections.Generic;
@@ -25,14 +26,20 @@ namespace HomesForSales
             InitializeComponent();
             comboBoxCountries.DataSource = Enum.GetValues(typeof(Countries));
             comboBoxCountry.DataSource = Enum.GetValues(typeof(Countries));
-            comboBoxCountryChange.DataSource= Enum.GetValues(typeof(Countries));
+            comboBoxCountryChange.DataSource = Enum.GetValues(typeof(Countries));
             comboBoxLegalForm.DataSource = Enum.GetValues(typeof(LegalForm));
             comboBoxChangeLegalForm.DataSource = Enum.GetValues(typeof(LegalForm));
             comboBoxAddLegalForm.DataSource = Enum.GetValues(typeof(LegalForm));
             comboBoxType.DataSource = estateController.GetEstateTypes();
             comboBoxAddType.DataSource = estateController.GetEstateTypes();
             comboBoxChangeType.DataSource = estateController.GetEstateTypes();
-
+            comboBoxAddCategory.DataSource = estateController.GetEstateCategories();
+            comboBoxCategory.DataSource = estateController.GetEstateCategories();
+            comboBoxEstateObject.DataSource = estateController.GetAllEstates();
+            comboBoxChangeEstateId.DataSource = estateController.GetAllEstates().Select(e => e.EstateId).ToList();
+            comboBoxAddAddressToEstate.DataSource = addressController.GetAllAddresses();
+            comboBoxChangeAddressForEstate.DataSource = addressController.GetAllAddresses();
+            comboBoxChangeAddress.DataSource = addressController.GetAllAddresses();
         }
 
         private void lblAddress_Click(object sender, EventArgs e)
@@ -153,22 +160,22 @@ namespace HomesForSales
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(comboBoxChangeEstateId.Text))
+            Estate selectedEstate = (Estate)comboBoxEstateObject.SelectedItem;
+
+            if (selectedEstate == null)
             {
                 System.Windows.Forms.MessageBox.Show("Please choose an Estate Id for the Estate to be deleted!");
+                return;
             }
-            else
-            {
 
-            }
+            estateController.DeleteEstate(selectedEstate);
         }
 
-        
+
         private void buttonChangeEstate_Click(object sender, EventArgs e)
         {
             // If one of the fields are not filled in
             if (String.IsNullOrEmpty(comboBoxChangeEstateId.Text) || String.IsNullOrEmpty(comboBoxChangeLegalForm.Text) ||
-                String.IsNullOrEmpty(comboBoxChangeCategory.Text) || String.IsNullOrEmpty(comboBoxChangeType.Text) ||
                 String.IsNullOrEmpty(comboBoxChangeAddressForEstate.Text))
             {
                 string errorMessage = "";
@@ -179,10 +186,6 @@ namespace HomesForSales
                 if (String.IsNullOrEmpty(comboBoxChangeLegalForm.Text))
                 {
                     errorMessage += " Legal Form";
-                }
-                if (String.IsNullOrEmpty(comboBoxChangeCategory.Text))
-                {
-                    errorMessage += " Category";
                 }
                 if (String.IsNullOrEmpty(comboBoxChangeType.Text))
                 {
@@ -197,83 +200,18 @@ namespace HomesForSales
             }
             else
             {
-                if (comboBoxType.Text.Equals("House"))
+                Estate estate = (Estate)comboBoxChangeType.SelectedItem;
+                estate.EstateId = comboBoxChangeEstateId.Text;
+                estate.LegalForm = (LegalForm)comboBoxChangeLegalForm.SelectedItem;
+                estate.Address = (Address)comboBoxChangeAddressForEstate.SelectedItem;
+                bool estateIsUpdated = estateController.UpdateEstate(estate);
+                if (estateIsUpdated)
                 {
-                    House house = new House((LegalForm)comboBoxAddLegalForm.SelectedItem, (Address)comboBoxAddAddressToEstate.SelectedItem, textBoxEstateId.Text);
-                    bool houseIsUpdated = estateController.UpdateEstate(house);
-                    if (houseIsUpdated)
-                    {
-                        System.Windows.Forms.MessageBox.Show("House is updated.");
-                    }
-                    else
-                    {
-                        System.Windows.Forms.MessageBox.Show("An error occured when trying to update the house.");
-                    }
+                    System.Windows.Forms.MessageBox.Show("Estate is updated.");
                 }
-                else if (comboBoxType.Text.Equals("Villa"))
+                else
                 {
-                    Villa villa = new Villa((LegalForm)comboBoxAddLegalForm.SelectedItem, (Address)comboBoxAddAddressToEstate.SelectedItem, textBoxEstateId.Text);
-                    bool villaIsUpdated = estateController.UpdateEstate(villa);
-                    if (villaIsUpdated)
-                    {
-                        System.Windows.Forms.MessageBox.Show(" Villa is added.");
-                    }
-                    else
-                    {
-                        System.Windows.Forms.MessageBox.Show("An error occured when trying to update the villa.");
-                    }
-                }
-                else if (comboBoxType.Text.Equals("Apartment"))
-                {
-                    Apartment apartment = new Apartment((LegalForm)comboBoxAddLegalForm.SelectedItem, (Address)comboBoxAddAddressToEstate.SelectedItem, textBoxEstateId.Text);
-                    bool apartmentIsUpdated = estateController.UpdateEstate(apartment);
-                    if (apartmentIsUpdated)
-                    {
-                        System.Windows.Forms.MessageBox.Show("Apartment is updated.");
-                    }
-                    else
-                    {
-                        System.Windows.Forms.MessageBox.Show("An error occured when trying to update the apartment.");
-                    }
-                }
-                else if (comboBoxType.Text.Equals("Townhouse"))
-                {
-                    Townhouse townhouse = new Townhouse((LegalForm)comboBoxAddLegalForm.SelectedItem, (Address)comboBoxAddAddressToEstate.SelectedItem, textBoxEstateId.Text);
-                    bool townhouseIsUpdated = estateController.UpdateEstate(townhouse);
-                    if (townhouseIsUpdated)
-                    {
-                        System.Windows.Forms.MessageBox.Show("Townhouse is updated.");
-                    }
-                    else
-                    {
-                        System.Windows.Forms.MessageBox.Show("An error occured when trying to update the Townhouse.");
-                    }
-                }
-                else if (comboBoxType.Text.Equals("Shop"))
-                {
-                    Shop shop = new Shop((LegalForm)comboBoxAddLegalForm.SelectedItem, (Address)comboBoxAddAddressToEstate.SelectedItem, textBoxEstateId.Text);
-                    bool shopIsUpdated = estateController.UpdateEstate(shop);
-                    if (shopIsUpdated)
-                    {
-                        System.Windows.Forms.MessageBox.Show("Shop is updated.");
-                    }
-                    else
-                    {
-                        System.Windows.Forms.MessageBox.Show("An error occured when trying to update the shop.");
-                    }
-                }
-                else if (comboBoxType.Text.Equals("Warehouse"))
-                {
-                    Warehouse warehouse = new Warehouse((LegalForm)comboBoxAddLegalForm.SelectedItem, (Address)comboBoxAddAddressToEstate.SelectedItem, textBoxEstateId.Text);
-                    bool warehouseIsUpdated = estateController.UpdateEstate(warehouse);
-                    if (warehouseIsUpdated)
-                    {
-                        System.Windows.Forms.MessageBox.Show("Warehouse is added.");
-                    }
-                    else
-                    {
-                        System.Windows.Forms.MessageBox.Show("An error occured when trying to add the Warehouse.");
-                    }
+                    System.Windows.Forms.MessageBox.Show("An error occured when trying to update the estate.");
                 }
             }
         }
@@ -307,8 +245,13 @@ namespace HomesForSales
             }
             else
             {
-                bool addressIsUpdated = addressController.UpdateAddress(new Address(textBoxStreet.Text, textBoxCity.Text,
-                textBoxZipCode.Text, (Countries)comboBoxCountries.SelectedItem));
+                Address addressToChange = (Address)comboBoxChangeAddress.SelectedItem;
+                addressToChange.Street = textBoxStreetChange.Text;
+                addressToChange.City = textBoxCityChange.Text;
+                addressToChange.ZipCode = textBoxZipCodeChange.Text;
+                addressToChange.Country = (Countries)comboBoxCountryChange.SelectedItem;
+
+                bool addressIsUpdated = addressController.UpdateAddress(addressToChange);
                 if (addressIsUpdated)
                 {
                     System.Windows.Forms.MessageBox.Show("Address is updated.");
@@ -318,6 +261,21 @@ namespace HomesForSales
                     System.Windows.Forms.MessageBox.Show("An error occured when trying to update the address.");
                 }
             }
+        }
+
+        private void buttonFind_Click(object sender, EventArgs e)
+        {
+            FindEstateDto searchObj = new FindEstateDto();
+            searchObj.EstateId = textBoxFindEstateId.Text;
+            searchObj.LegalForm = (LegalForm)comboBoxLegalForm.SelectedItem;
+            searchObj.Type = (Estate)comboBoxType.SelectedItem;
+            searchObj.Category = (Estate)comboBoxCategory.SelectedItem;
+            searchObj.Street = textBoxFindStreet.Text;
+            searchObj.ZipCode = textBoxFindZipcode.Text;
+            searchObj.City = textBoxFindCity.Text;
+            searchObj.Country = (Countries)comboBoxCountry.SelectedItem;
+            var result = estateController.SearchEstate(searchObj);
+            dataGridViewEstates.DataSource = result;
         }
     }
 }

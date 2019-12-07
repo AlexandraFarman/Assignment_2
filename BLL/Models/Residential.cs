@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HomesForSales.Models
 {
-    public abstract class Residential : Estate
+    public class Residential : Estate
     {
         public Residential(string estateId, LegalForm legalForm, Address address) : base(estateId, legalForm, address)
         {
@@ -14,5 +14,10 @@ namespace HomesForSales.Models
         }
 
         public Residential() { }
+
+        public override string ToString()
+        {
+            return "Residential";
+        }
     }
 }

@@ -14,5 +14,13 @@ namespace HomesForSales.Models
         }
 
         public Shop() { }
+
+        public override string ToString()
+        {
+            string estateId = EstateId != null ? ", " + EstateId : null;
+            string address = Address != null ? ", " + Address : null;
+            string str = "Shop" + estateId + address;
+            return str;
+        }
     }
 }

@@ -14,5 +14,13 @@ namespace HomesForSales.Models
         }
 
         public Townhouse() { }
+
+        public override string ToString()
+        {
+            string estateId = EstateId != null ? ", " + EstateId : null;
+            string address = Address != null ? ", " + Address : null;
+            string str = "Townhouse" + estateId + address;
+            return str;
+        }
     }
 }

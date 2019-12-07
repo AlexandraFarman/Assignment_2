@@ -50,6 +50,7 @@
     <Compile Include="Models\Commercial.cs" />
     <Compile Include="Models\Countries.cs" />
     <Compile Include="Models\Estate.cs" />
+    <Compile Include="Models\FindEstateDto.cs" />
     <Compile Include="Models\House.cs" />
     <Compile Include="Models\LegalForm.cs" />
     <Compile Include="Models\Residential.cs" />

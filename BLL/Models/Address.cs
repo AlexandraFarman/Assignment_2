@@ -8,10 +8,20 @@ namespace HomesForSales.Models
 {
    public class Address
     {
-        private string Street { get; set; }
-        private string ZipCode { get; set; }
-        private string City { get; set; }
-        private Countries Country { get; set; }
+        public int Id { get; set; }
+        public string Street { get; set; }
+        public string ZipCode { get; set; }
+        public string City { get; set; }
+        public Countries Country { get; set; }
+
+        public Address(int id, string street, string zipCode, string city, Countries country)
+        {
+            Id = id;
+            Street = street;
+            ZipCode = zipCode;
+            City = city;
+            Country = country;
+        }
 
         public Address(string street, string zipCode, string city, Countries country)
         {
@@ -19,6 +29,11 @@ namespace HomesForSales.Models
             ZipCode = zipCode;
             City = city;
             Country = country;
+        }
+
+        public override string ToString()
+        {
+            return $"{Street}, {ZipCode}, {City}, {Country}";
         }
     }
 }
