@@ -9,8 +9,8 @@ namespace HomesForSales.Models
     public abstract class Estate
     {
         public string EstateId { get; set; }
-        private LegalForm LegalForm { get; set; }
-        private Address Address { get; set; }
+        public LegalForm LegalForm { get; set; }
+        public Address Address { get; set; }
 
         public Estate(string estateId, LegalForm legalForm, Address address)
         {
@@ -19,5 +19,7 @@ namespace HomesForSales.Models
             Address = address;
 
         }
+
+        public Estate() { }
     }
 }

@@ -53,6 +53,18 @@
             this.comboBoxAddLegalForm = new System.Windows.Forms.ComboBox();
             this.comboBoxCountries = new System.Windows.Forms.ComboBox();
             this.tabManage = new System.Windows.Forms.TabPage();
+            this.labelDeleteEstate = new System.Windows.Forms.Label();
+            this.labelEstateObject = new System.Windows.Forms.Label();
+            this.comboBoxEstateObject = new System.Windows.Forms.ComboBox();
+            this.buttonChangeAddress = new System.Windows.Forms.Button();
+            this.comboBoxCountryChange = new System.Windows.Forms.ComboBox();
+            this.lblChangeAddress = new System.Windows.Forms.Label();
+            this.lblChangeAddressForEstate = new System.Windows.Forms.Label();
+            this.comboBoxChangeAddressForEstate = new System.Windows.Forms.ComboBox();
+            this.comboBoxChangeType = new System.Windows.Forms.ComboBox();
+            this.comboBoxChangeCategory = new System.Windows.Forms.ComboBox();
+            this.comboBoxChangeLegalForm = new System.Windows.Forms.ComboBox();
+            this.comboBoxChangeEstateId = new System.Windows.Forms.ComboBox();
             this.lblChangeEstate = new System.Windows.Forms.Label();
             this.buttonChangeEstate = new System.Windows.Forms.Button();
             this.lblEstateIdChange = new System.Windows.Forms.Label();
@@ -91,18 +103,6 @@
             this.lblLegalFormFind = new System.Windows.Forms.Label();
             this.comboBoxEstateId = new System.Windows.Forms.ComboBox();
             this.lblFindEstates = new System.Windows.Forms.Label();
-            this.comboBoxChangeEstateId = new System.Windows.Forms.ComboBox();
-            this.comboBoxChangeLegalForm = new System.Windows.Forms.ComboBox();
-            this.comboBoxChangeCategory = new System.Windows.Forms.ComboBox();
-            this.comboBoxChangeType = new System.Windows.Forms.ComboBox();
-            this.comboBoxChangeAddressForEstate = new System.Windows.Forms.ComboBox();
-            this.lblChangeAddressForEstate = new System.Windows.Forms.Label();
-            this.lblChangeAddress = new System.Windows.Forms.Label();
-            this.comboBoxChangeCountry = new System.Windows.Forms.ComboBox();
-            this.buttonChangeAddress = new System.Windows.Forms.Button();
-            this.labelEstateObject = new System.Windows.Forms.Label();
-            this.comboBoxEstateObject = new System.Windows.Forms.ComboBox();
-            this.labelDeleteEstate = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabAdd.SuspendLayout();
             this.tabManage.SuspendLayout();
@@ -365,7 +365,7 @@
             this.tabManage.Controls.Add(this.labelEstateObject);
             this.tabManage.Controls.Add(this.comboBoxEstateObject);
             this.tabManage.Controls.Add(this.buttonChangeAddress);
-            this.tabManage.Controls.Add(this.comboBoxChangeCountry);
+            this.tabManage.Controls.Add(this.comboBoxCountryChange);
             this.tabManage.Controls.Add(this.lblChangeAddress);
             this.tabManage.Controls.Add(this.lblChangeAddressForEstate);
             this.tabManage.Controls.Add(this.comboBoxChangeAddressForEstate);
@@ -397,6 +397,115 @@
             this.tabManage.Size = new System.Drawing.Size(1074, 688);
             this.tabManage.TabIndex = 1;
             this.tabManage.Text = "Manage Estates";
+            // 
+            // labelDeleteEstate
+            // 
+            this.labelDeleteEstate.AutoSize = true;
+            this.labelDeleteEstate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDeleteEstate.Location = new System.Drawing.Point(833, 36);
+            this.labelDeleteEstate.Name = "labelDeleteEstate";
+            this.labelDeleteEstate.Size = new System.Drawing.Size(120, 20);
+            this.labelDeleteEstate.TabIndex = 68;
+            this.labelDeleteEstate.Text = "Delete Estate";
+            // 
+            // labelEstateObject
+            // 
+            this.labelEstateObject.AutoSize = true;
+            this.labelEstateObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEstateObject.Location = new System.Drawing.Point(880, 160);
+            this.labelEstateObject.Name = "labelEstateObject";
+            this.labelEstateObject.Size = new System.Drawing.Size(52, 16);
+            this.labelEstateObject.TabIndex = 67;
+            this.labelEstateObject.Text = "Estate";
+            this.labelEstateObject.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // comboBoxEstateObject
+            // 
+            this.comboBoxEstateObject.FormattingEnabled = true;
+            this.comboBoxEstateObject.Location = new System.Drawing.Point(777, 184);
+            this.comboBoxEstateObject.Name = "comboBoxEstateObject";
+            this.comboBoxEstateObject.Size = new System.Drawing.Size(268, 26);
+            this.comboBoxEstateObject.TabIndex = 66;
+            // 
+            // buttonChangeAddress
+            // 
+            this.buttonChangeAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonChangeAddress.Location = new System.Drawing.Point(535, 319);
+            this.buttonChangeAddress.Name = "buttonChangeAddress";
+            this.buttonChangeAddress.Size = new System.Drawing.Size(123, 29);
+            this.buttonChangeAddress.TabIndex = 65;
+            this.buttonChangeAddress.Text = "Change Address";
+            this.buttonChangeAddress.UseVisualStyleBackColor = true;
+            this.buttonChangeAddress.Click += new System.EventHandler(this.buttonChangeAddress_Click);
+            // 
+            // comboBoxCountryChange
+            // 
+            this.comboBoxCountryChange.FormattingEnabled = true;
+            this.comboBoxCountryChange.Location = new System.Drawing.Point(604, 242);
+            this.comboBoxCountryChange.Name = "comboBoxCountryChange";
+            this.comboBoxCountryChange.Size = new System.Drawing.Size(100, 26);
+            this.comboBoxCountryChange.TabIndex = 64;
+            // 
+            // lblChangeAddress
+            // 
+            this.lblChangeAddress.AutoSize = true;
+            this.lblChangeAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChangeAddress.Location = new System.Drawing.Point(516, 36);
+            this.lblChangeAddress.Name = "lblChangeAddress";
+            this.lblChangeAddress.Size = new System.Drawing.Size(142, 20);
+            this.lblChangeAddress.TabIndex = 63;
+            this.lblChangeAddress.Text = "Change Address";
+            this.lblChangeAddress.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // lblChangeAddressForEstate
+            // 
+            this.lblChangeAddressForEstate.AutoSize = true;
+            this.lblChangeAddressForEstate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChangeAddressForEstate.Location = new System.Drawing.Point(179, 239);
+            this.lblChangeAddressForEstate.Name = "lblChangeAddressForEstate";
+            this.lblChangeAddressForEstate.Size = new System.Drawing.Size(66, 16);
+            this.lblChangeAddressForEstate.TabIndex = 62;
+            this.lblChangeAddressForEstate.Text = "Address";
+            // 
+            // comboBoxChangeAddressForEstate
+            // 
+            this.comboBoxChangeAddressForEstate.FormattingEnabled = true;
+            this.comboBoxChangeAddressForEstate.Location = new System.Drawing.Point(88, 271);
+            this.comboBoxChangeAddressForEstate.Name = "comboBoxChangeAddressForEstate";
+            this.comboBoxChangeAddressForEstate.Size = new System.Drawing.Size(268, 26);
+            this.comboBoxChangeAddressForEstate.TabIndex = 61;
+            // 
+            // comboBoxChangeType
+            // 
+            this.comboBoxChangeType.FormattingEnabled = true;
+            this.comboBoxChangeType.Location = new System.Drawing.Point(235, 182);
+            this.comboBoxChangeType.Name = "comboBoxChangeType";
+            this.comboBoxChangeType.Size = new System.Drawing.Size(121, 26);
+            this.comboBoxChangeType.TabIndex = 60;
+            // 
+            // comboBoxChangeCategory
+            // 
+            this.comboBoxChangeCategory.FormattingEnabled = true;
+            this.comboBoxChangeCategory.Location = new System.Drawing.Point(88, 182);
+            this.comboBoxChangeCategory.Name = "comboBoxChangeCategory";
+            this.comboBoxChangeCategory.Size = new System.Drawing.Size(121, 26);
+            this.comboBoxChangeCategory.TabIndex = 59;
+            // 
+            // comboBoxChangeLegalForm
+            // 
+            this.comboBoxChangeLegalForm.FormattingEnabled = true;
+            this.comboBoxChangeLegalForm.Location = new System.Drawing.Point(235, 103);
+            this.comboBoxChangeLegalForm.Name = "comboBoxChangeLegalForm";
+            this.comboBoxChangeLegalForm.Size = new System.Drawing.Size(121, 26);
+            this.comboBoxChangeLegalForm.TabIndex = 58;
+            // 
+            // comboBoxChangeEstateId
+            // 
+            this.comboBoxChangeEstateId.FormattingEnabled = true;
+            this.comboBoxChangeEstateId.Location = new System.Drawing.Point(88, 103);
+            this.comboBoxChangeEstateId.Name = "comboBoxChangeEstateId";
+            this.comboBoxChangeEstateId.Size = new System.Drawing.Size(121, 26);
+            this.comboBoxChangeEstateId.TabIndex = 57;
             // 
             // lblChangeEstate
             // 
@@ -770,114 +879,6 @@
             this.lblFindEstates.TabIndex = 30;
             this.lblFindEstates.Text = "Find Estates";
             // 
-            // comboBoxChangeEstateId
-            // 
-            this.comboBoxChangeEstateId.FormattingEnabled = true;
-            this.comboBoxChangeEstateId.Location = new System.Drawing.Point(88, 103);
-            this.comboBoxChangeEstateId.Name = "comboBoxChangeEstateId";
-            this.comboBoxChangeEstateId.Size = new System.Drawing.Size(121, 26);
-            this.comboBoxChangeEstateId.TabIndex = 57;
-            // 
-            // comboBoxChangeLegalForm
-            // 
-            this.comboBoxChangeLegalForm.FormattingEnabled = true;
-            this.comboBoxChangeLegalForm.Location = new System.Drawing.Point(235, 103);
-            this.comboBoxChangeLegalForm.Name = "comboBoxChangeLegalForm";
-            this.comboBoxChangeLegalForm.Size = new System.Drawing.Size(121, 26);
-            this.comboBoxChangeLegalForm.TabIndex = 58;
-            // 
-            // comboBoxChangeCategory
-            // 
-            this.comboBoxChangeCategory.FormattingEnabled = true;
-            this.comboBoxChangeCategory.Location = new System.Drawing.Point(88, 182);
-            this.comboBoxChangeCategory.Name = "comboBoxChangeCategory";
-            this.comboBoxChangeCategory.Size = new System.Drawing.Size(121, 26);
-            this.comboBoxChangeCategory.TabIndex = 59;
-            // 
-            // comboBoxChangeType
-            // 
-            this.comboBoxChangeType.FormattingEnabled = true;
-            this.comboBoxChangeType.Location = new System.Drawing.Point(235, 182);
-            this.comboBoxChangeType.Name = "comboBoxChangeType";
-            this.comboBoxChangeType.Size = new System.Drawing.Size(121, 26);
-            this.comboBoxChangeType.TabIndex = 60;
-            // 
-            // comboBoxChangeAddressForEstate
-            // 
-            this.comboBoxChangeAddressForEstate.FormattingEnabled = true;
-            this.comboBoxChangeAddressForEstate.Location = new System.Drawing.Point(88, 271);
-            this.comboBoxChangeAddressForEstate.Name = "comboBoxChangeAddressForEstate";
-            this.comboBoxChangeAddressForEstate.Size = new System.Drawing.Size(268, 26);
-            this.comboBoxChangeAddressForEstate.TabIndex = 61;
-            // 
-            // lblChangeAddressForEstate
-            // 
-            this.lblChangeAddressForEstate.AutoSize = true;
-            this.lblChangeAddressForEstate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChangeAddressForEstate.Location = new System.Drawing.Point(179, 239);
-            this.lblChangeAddressForEstate.Name = "lblChangeAddressForEstate";
-            this.lblChangeAddressForEstate.Size = new System.Drawing.Size(66, 16);
-            this.lblChangeAddressForEstate.TabIndex = 62;
-            this.lblChangeAddressForEstate.Text = "Address";
-            // 
-            // lblChangeAddress
-            // 
-            this.lblChangeAddress.AutoSize = true;
-            this.lblChangeAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChangeAddress.Location = new System.Drawing.Point(516, 36);
-            this.lblChangeAddress.Name = "lblChangeAddress";
-            this.lblChangeAddress.Size = new System.Drawing.Size(142, 20);
-            this.lblChangeAddress.TabIndex = 63;
-            this.lblChangeAddress.Text = "Change Address";
-            this.lblChangeAddress.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // comboBoxChangeCountry
-            // 
-            this.comboBoxChangeCountry.FormattingEnabled = true;
-            this.comboBoxChangeCountry.Location = new System.Drawing.Point(604, 242);
-            this.comboBoxChangeCountry.Name = "comboBoxChangeCountry";
-            this.comboBoxChangeCountry.Size = new System.Drawing.Size(100, 26);
-            this.comboBoxChangeCountry.TabIndex = 64;
-            // 
-            // buttonChangeAddress
-            // 
-            this.buttonChangeAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonChangeAddress.Location = new System.Drawing.Point(535, 319);
-            this.buttonChangeAddress.Name = "buttonChangeAddress";
-            this.buttonChangeAddress.Size = new System.Drawing.Size(123, 29);
-            this.buttonChangeAddress.TabIndex = 65;
-            this.buttonChangeAddress.Text = "Change Address";
-            this.buttonChangeAddress.UseVisualStyleBackColor = true;
-            // 
-            // labelEstateObject
-            // 
-            this.labelEstateObject.AutoSize = true;
-            this.labelEstateObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEstateObject.Location = new System.Drawing.Point(880, 160);
-            this.labelEstateObject.Name = "labelEstateObject";
-            this.labelEstateObject.Size = new System.Drawing.Size(52, 16);
-            this.labelEstateObject.TabIndex = 67;
-            this.labelEstateObject.Text = "Estate";
-            this.labelEstateObject.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // comboBoxEstateObject
-            // 
-            this.comboBoxEstateObject.FormattingEnabled = true;
-            this.comboBoxEstateObject.Location = new System.Drawing.Point(777, 184);
-            this.comboBoxEstateObject.Name = "comboBoxEstateObject";
-            this.comboBoxEstateObject.Size = new System.Drawing.Size(268, 26);
-            this.comboBoxEstateObject.TabIndex = 66;
-            // 
-            // labelDeleteEstate
-            // 
-            this.labelDeleteEstate.AutoSize = true;
-            this.labelDeleteEstate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDeleteEstate.Location = new System.Drawing.Point(833, 36);
-            this.labelDeleteEstate.Name = "labelDeleteEstate";
-            this.labelDeleteEstate.Size = new System.Drawing.Size(120, 20);
-            this.labelDeleteEstate.TabIndex = 68;
-            this.labelDeleteEstate.Text = "Delete Estate";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -971,7 +972,7 @@
         private System.Windows.Forms.ComboBox comboBoxChangeLegalForm;
         private System.Windows.Forms.ComboBox comboBoxChangeEstateId;
         private System.Windows.Forms.Button buttonChangeAddress;
-        private System.Windows.Forms.ComboBox comboBoxChangeCountry;
+        private System.Windows.Forms.ComboBox comboBoxCountryChange;
         private System.Windows.Forms.Label labelDeleteEstate;
         private System.Windows.Forms.Label labelEstateObject;
         private System.Windows.Forms.ComboBox comboBoxEstateObject;

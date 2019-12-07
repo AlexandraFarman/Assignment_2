@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HomesForSales.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,23 @@ namespace BLL.Controllers
 {
     public class AddressController : IAddressController
     {
-        public bool AddAddress(string street, string city, string zipCode, string country)
+        public bool AddAddress(Address address)
         {
-            throw new NotImplementedException();
+            return true;
+        }
+
+        public bool UpdateAddress(Address address)
+        {
+            return true;
+        }
+
+        public bool DeleteAddress(Address address)
+        {
+            return true;
+        }
+        public bool SearchAddress(Address address)
+        {
+            return true;
         }
     }
 }

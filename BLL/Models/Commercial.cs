@@ -12,5 +12,7 @@ namespace HomesForSales.Models
         {
 
         }
+
+        public Commercial() { }
     }
 }
